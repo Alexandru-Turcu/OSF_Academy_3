@@ -8,7 +8,7 @@ class Directory extends React.Component {
   constructor() {
     super();
     const images = importAll(
-      require.context("../images", false, /\.(png|jpe?g|svg)$/)
+      require.context("../img", false, /\.(png|jpe?g|svg)$/)
     );
 
     this.state = {
