@@ -1,66 +1,102 @@
-import React from "react"
-import "./navbar-styles.scss"
+import React from "react";
+import "./navbar-styles.scss";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 const NavBar = () => {
-
-    return (
-        <div className="navbar" bg="light" expand="lg">
-          <a href="homepage">
-            <img alt="logo" src={require("../img/logo_click_63x65.png")}></img>
-          </a>
-          <img alt="logo_text" src={require("../img/logo_text_74x44.png")}></img>
-        <div className="dropdown">
-          <button className="dropbtn">Services
-            <i className="fa fa-caret-down" />
-          </button>
-          <div className="dropdown-content">
-            <div className="row">
-              <div className="column">
-                <h3>Product Categories</h3>
-                <a href="#404error">Accesories</a>
-                <a href="#404error">Alcohol</a>
-                <a href="#404error">Art</a>
-                <a href="#404error">Books</a>
-                <a href="#404error">Drink</a>
-                <a href="#404error">Electronics</a>
-                <a href="#404error">Flowers & Plants</a>
-                <a href="#404error">Food</a>
-                <a href="#404error">Gadgets</a>
-                <a href="#404error">Garden</a>
-                <a href="#404error">Grocery</a>
-                <a href="#404error">Home</a>
-                <a href="#404error">Jewelry</a>
-                <a href="#404error">Kids & Baby</a>
-                <a href="#404error">Men's Fashion</a>
-                <a href="#404error">Mobile</a>
-                <a href="#404error">Motorcycles</a>
-                <a href="#404error">Movies</a>
-                <a href="#404error">Music</a>
-                <a href="#404error">Office</a>
-                <a href="#404error">Pets</a>
-                <a href="#404error">Romantic</a>
-                <a href="#404error">Sport</a>
-                <a href="#404error">Toys</a>
-              </div>
-              <div className="column">
-                <h3>Sale</h3>
-                <a href="#404error">Accesories</a>
-                <a href="#404error">Alcohol</a>
-                <a href="#404error">Art</a>
-                <a href="#404error">Books</a>
-                <a href="#404error">Drink</a>
-                <a href="#404error">Electronics</a>
-                <a href="#404error">Flowers & Plants</a>
-                <a href="#404error">Food</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a href="#home">Company</a>
-        <a href="#library">Library</a>
-        <a href="#contact">Contact Us</a>
-        </div>
-    );    
+  const product_categories = [
+    "Accessories",
+    "Alcohol",
+    "Art",
+    "Books",
+    "Drink",
+    "Electronics",
+    "Flowers & Plants",
+    "Food",
+    "Gadgets",
+    "Garden",
+    "Grocery",
+    "Home",
+    "Jewelry",
+    "Kids & Baby",
+    "Men's Fashion",
+    "Mobile",
+    "Motorcycles",
+    "Movies",
+    "Music",
+    "Office",
+    "Pets",
+    "Romantic",
+    "Sport",
+    "Toys",
+  ];
+  const sales = [
+    "Accessories",
+    "Alcohol",
+    "Art",
+    "Books",
+    "Drink",
+    "Electronics",
+    "Flowers & Plants",
+    "Food",
+  ];
+  return (
+    <Navbar bg="light" expand="lg">
+      <Navbar.Brand href="#home">
+        <img alt="logo" src={require("../img/logo_click_63x65.png")}></img>
+      </Navbar.Brand>
+      <img alt="logo_text" src={require("../img/logo_text_74x44.png")}></img>
+      <br />
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <NavDropdown title="Services" id="basic-nav-dropdown">
+            <ul className="submenu">
+              <li className="submenu-item">
+                Product Categories
+                <ul>
+                  {product_categories.map((product) => {
+                    return (
+                      <NavDropdown.Item
+                        style={{ display: "flex", alignItems: "center" }}
+                        className="product-item"
+                        key={product}
+                        href="#404error"
+                      >
+                        {product}
+                      </NavDropdown.Item>
+                    );
+                  })}
+                </ul>
+              </li>
+              <li className="submenu-item">
+                Sale
+                <ul>
+                  {sales.map((sale) => {
+                    return (
+                      <NavDropdown.Item
+                        className="product-item"
+                        key={sale}
+                        href="#404error"
+                      >
+                        {sale}
+                      </NavDropdown.Item>
+                    );
+                  })}
+                </ul>
+              </li>
+            </ul>
+          </NavDropdown>
+          <Nav.Link href="#home">Company</Nav.Link>
+          <Nav.Link href="#library">Library</Nav.Link>
+          <Nav.Link href="#contact">Contact Us</Nav.Link>
+          <NavDropdown title="EN" id="basic-nav-dropdown"></NavDropdown>
+          <NavDropdown title="$ US" id="basic-nav-dropdown"></NavDropdown>
+        </Nav>
+      </Navbar.Collapse>
+    </Navbar>
+  );
 };
 
-export default NavBar
+export default NavBar;
