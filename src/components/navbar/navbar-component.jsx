@@ -44,9 +44,9 @@ const NavBar = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Navbar.Brand href="#home">
-        <img alt="logo" src={require("../img/logo_click_63x65.png")}></img>
+        <img alt="logo" src={require("../img/logo_click.png")}></img>
       </Navbar.Brand>
-      <img alt="logo_text" src={require("../img/logo_text_74x44.png")}></img>
+      <img id="logo-text" alt="logo_text" src={require("../img/logo_text.png")}></img>
       <br />
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -59,7 +59,11 @@ const NavBar = () => {
                   {product_categories.map((product) => {
                     return (
                       <NavDropdown.Item
-                        style={{ display: "flex", alignItems: "center" }}
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          color: "white",
+                        }}
                         className="product-item"
                         key={product}
                         href="#404error"
@@ -76,6 +80,11 @@ const NavBar = () => {
                   {sales.map((sale) => {
                     return (
                       <NavDropdown.Item
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        color: "white",
+                      }}
                         className="product-item"
                         key={sale}
                         href="#404error"
@@ -86,13 +95,39 @@ const NavBar = () => {
                   })}
                 </ul>
               </li>
+              <li className="submenu-item">
+                <img alt="navbar-img" src={require("../img/lady.png")}></img>
+              </li>
             </ul>
           </NavDropdown>
-          <Nav.Link href="#home">Company</Nav.Link>
-          <Nav.Link href="#library">Library</Nav.Link>
-          <Nav.Link href="#contact">Contact Us</Nav.Link>
-          <NavDropdown title="EN" id="basic-nav-dropdown"></NavDropdown>
-          <NavDropdown title="$ US" id="basic-nav-dropdown"></NavDropdown>
+          <Nav.Link
+            style={{ display: "flex", alignItems: "center" }}
+            href="#home"
+          >
+            Company
+          </Nav.Link>
+          <Nav.Link
+            style={{ display: "flex", alignItems: "center" }}
+            href="#library"
+          >
+            Library
+          </Nav.Link>
+          <Nav.Link
+            style={{ display: "flex", alignItems: "center" }}
+            href="#contact"
+          >
+            Contact Us
+          </Nav.Link>
+          <NavDropdown
+            style={{ display: "flex", alignItems: "center" }}
+            title="EN"
+            id="basic-nav-dropdown"
+          ></NavDropdown>
+          <NavDropdown
+            style={{ display: "flex", alignItems: "center" }}
+            title="$ US"
+            id="basic-nav-dropdown"
+          ></NavDropdown>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
